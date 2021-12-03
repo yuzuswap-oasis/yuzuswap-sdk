@@ -21,11 +21,11 @@ export class AttenuationReward {
 
 
 
-    public getZooRewardBetween(start: number,end :number) : JSBI {
-      let getZooReardFromStart = (end:number):JSBI=>{
+    public getZooRewardBetween(start: number,end :number) : Decimal {
+      let getZooReardFromStart = (end:number): Decimal=>{
 
         if( start< this.startBlock || end < this.startBlock || start > end) {
-          return JSBI.BigInt("0")
+          return new Decimal(0)
         }
         let cycle = Math.floor((end-this.startBlock)/(this.halfAttenuationCycle))
         if(cycle > 255) {
@@ -38,11 +38,12 @@ export class AttenuationReward {
         let rest = JSBI.BigInt(Math.floor(multiply * ((this.halfAttenuationCycle*2)- (this.halfAttenuationCycle/attenuationMul)-( this.halfAttenuationCycle
           - (end-this.startBlock)% this.halfAttenuationCycle)/attenuationMul)))
 
-          
-        return JSBI.multiply(this.zooPerBlock,JSBI.divide( rest,JSBI.BigInt(multiply)))
+        const re  = new Decimal(this.zooPerBlock.toString(10)).mul(new Decimal(rest.toString(10)).div(multiply))
+        
+        return re
        }
 
-      return JSBI.subtract(getZooReardFromStart(end), getZooReardFromStart(start) )
+      return getZooReardFromStart(end).sub(getZooReardFromStart(start)) 
     
     }
 
@@ -82,7 +83,7 @@ export class TradePool {
     // one day ≈  21600 block
     if(JSBI.greaterThan(this.totalLp,JSBI.BigInt(0))) {
      // const oneDayReward = JSBI.divide(JSBI.BigInt(this.rewardConfig.getZooRewardBetween(currBlockNo,currBlockNo + 21600)) ,this.totalLp)
-      const oneDayReward = new  Decimal(this.rewardConfig.getZooRewardBetween(currBlockNo,currBlockNo + 21600).toString(10)).div( new Decimal(this.totalLp.toString(10)))
+      const oneDayReward = new  Decimal(this.rewardConfig.getZooRewardBetween(currBlockNo,currBlockNo + 21600).toString()).div( new Decimal(this.totalLp.toString(10)))
       // 0.3% fee
       return   oneDayReward.div(new Decimal(rewardPrice)).div(new Decimal(archorPrice))
     } else{
@@ -125,7 +126,7 @@ export class StakePool {
     // one day ≈  21600 block
     if(JSBI.greaterThan(this.totalLpInPark,JSBI.BigInt(0))) {
       //const oneDayReward = JSBI.divide(JSBI.BigInt(this.rewardConfig.getZooRewardBetween(currBlockNo,currBlockNo + 21600)) ,this.totalLpInPark)
-      const oneDayReward = new  Decimal(this.rewardConfig.getZooRewardBetween(currBlockNo,currBlockNo + 21600).toString(10)).div( new Decimal(this.totalLp.toString(10)))
+      const oneDayReward = new  Decimal(this.rewardConfig.getZooRewardBetween(currBlockNo,currBlockNo + 21600).toString()).div( new Decimal(this.totalLp.toString(10)))
       //       oneDayReward Price /OneDay reward * 100000
       // 0.3% fee
 
