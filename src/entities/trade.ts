@@ -176,19 +176,20 @@ export class Trade {
       }
     }
 
+    let nativeToken = Currency.getNativeCurrency(route.chainId)
     this.route = route
     this.tradeType = tradeType
     this.inputAmount =
       tradeType === TradeType.EXACT_INPUT
         ? amount
         : IsNative(route.input)
-        ? CurrencyAmount.ether(amounts[0].raw)
+        ? new CurrencyAmount(nativeToken, amounts[0].raw)
         : amounts[0]
     this.outputAmount =
       tradeType === TradeType.EXACT_OUTPUT
         ? amount
         : IsNative(route.output)
-        ? CurrencyAmount.ether(amounts[amounts.length - 1].raw)
+        ? new CurrencyAmount(nativeToken, amounts[amounts.length - 1].raw)
         : amounts[amounts.length - 1]
     this.executionPrice = new Price(
       this.inputAmount.currency,
