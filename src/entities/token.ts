@@ -117,7 +117,7 @@ export const DefaultChainToken = {
     ETH: new Token(ChainId.OASISETH_TEST, '0xB38C1c2b5b0963428642eC55a320b429f21E180C', 18, 'ETH', 'ETH'),
     USDT: new Token(ChainId.OASISETH_TEST, '0xC584fFD011e16A10fd8329853B9B8DE6E0313AD9', 18, 'USDT', 'USDT'),
     BTC: new Token(ChainId.OASISETH_TEST, '0x961C7a3f1909243C9af056Fd11EdDa2e18b35C7b', 18, 'BTC', 'BTC'),
-    YUZU: new Token(ChainId.OASISETH_TEST, '0xBE4757D4623e532F44dDdC32534E16635e1f9e5B', 18, 'YUZU', 'YUZU'),
+    YUZU: new Token(ChainId.OASISETH_TEST, '0x2Ad8D8ac1e919a2402fC2D2F0dDA4B23DDb25e8B', 18, 'YUZU', 'YUZU'),
   },
 }
 // In reality this is a map of the wrapped version of the native token for a given network.

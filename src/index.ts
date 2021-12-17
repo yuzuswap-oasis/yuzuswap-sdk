@@ -20,6 +20,8 @@ export {
   ZOO_PARK_ADDRESS,
   ZOO_MINI_PARK_ADDRESS,
   ZOO_KEEPER_ADDRESS,
+  ZOO_PARK_EXT_ADDRESS,
+  ZOO_PARK_EXT_PID,
 } from './constants'
 
 export * from './errors'
