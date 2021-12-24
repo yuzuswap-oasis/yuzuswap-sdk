@@ -22,6 +22,7 @@ export {
   ZOO_KEEPER_ADDRESS,
   ZOO_PARK_EXT_ADDRESS,
   ZOO_PARK_EXT_PID,
+  ZOO_ZAP_ADDRESS,
 } from './constants'
 
 export * from './errors'
