@@ -145,14 +145,14 @@ export const ZOO_PARK_EXT_PID: { [chainId in ChainId]?: number } = {
   [ChainId.ROPSTEN]: 0,
   [ChainId.OASISETH]: 0,
   [ChainId.OKCHAIN_TEST]:0,
-  [ChainId.OASISETH_TEST]: 3
+  [ChainId.OASISETH_TEST]: 4
 }
 export const ZOO_PARK_EXT_ADDRESS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: '0x090D4613473dEE047c3f2706764f49E0821D256e',
   [ChainId.ROPSTEN]: '0x480b021bdCFf73BBe8541E4D389Ca6b25d1e0907',
   [ChainId.OASISETH]: '0x86B8BD817048946958BdAEFa880E9AD297912fcc',
   [ChainId.OKCHAIN_TEST]: '0x5CEDe17DCb104BaC72C86818ad56D683646a5b7a',
-  [ChainId.OASISETH_TEST]: '0xFD2D02913662F55De4e1b5e310eAe1754A9B7Bd6',
+  [ChainId.OASISETH_TEST]: '0xE9619775A4a3F92e2b0b634cfC80c187C5123807',
 }
 
 export const ZOO_ZAP_ADDRESS: { [chainId in ChainId]?: string } = {
